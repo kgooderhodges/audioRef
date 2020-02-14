@@ -1,5 +1,8 @@
-button {
-  display:block;
+.controller {
+  display: inline-block;
+}
+
+button {;
   font-size: 18px;
   padding:8px;
 }

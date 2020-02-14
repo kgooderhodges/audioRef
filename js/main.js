@@ -1,9 +1,11 @@
 (() => {
   //grab all the buttons and store them in a variable
-  const button = document.querySelectorAll('button'),
+  const playButtons = document.querySelectorAll('.playTrack'),
+        pauseButtons = document.querySelectorAll('.pauseTrack'),
+        rwButtons = document.querySelectorAll('.rwTrack'),
         audioElement = document.querySelector('#jukebox');
 
-  function playTrack() {
+  function loadTrack() {
     //debugger;
 
     //what audio track do we want? -> this is set on the button
@@ -14,9 +16,25 @@
 
     // load the mp3 into the audio element, and play it
     audioElement.load();
-    audioElement.play()
+    playTrack();
+  }
+
+  function playTrack(){
+    audioElement.play();
+  }
+
+  function pauseTrack() {
+    audioElement.pause();
+  }
+
+  function rwTrack() {
+    audioElement.currentTime = 0;
   }
 
 
-  button.forEach(button => button.addEventListener("click", playTrack));
+  playButtons.forEach(button => button.addEventListener('click', loadTrack));
+  pauseButtons.forEach(button => button.addEventListener('click', pauseTrack));
+  rwButtons.forEach(button => button.addEventListener('click', rwTrack));
+
 })()
+
